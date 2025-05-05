@@ -17,7 +17,7 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to="/">Home</NavLink ></li>
         <li><NavLink to="/category">Category</NavLink ></li>
-        <li><NavLink to="/whyus">Why Us!</NavLink ></li>
+        <li><NavLink to="/why-us">Why Us!</NavLink ></li>
         <li><NavLink to="/packages">Packages</NavLink ></li>
         <li><NavLink to="/login">Login</NavLink ></li>
         <li><NavLink to="/register">Register</NavLink ></li>
@@ -25,7 +25,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar bg-gradient-to-t from-amber via-blue-100 to-blue-500 shadow-sm">
+        <div className="navbar bg-gradient-to-t from-amber via-violet-100 to-violet-500 shadow-sm">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,7 +48,7 @@ const Navbar = () => {
             
 
             <div className="navbar-end">
-                <button className="bg-[#595014] hover:bg-orange-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300">
+                <button className="bg-gray-700 hover:bg-violet-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300">
                     {user ? <a className="btn">Sign Out</a> : <Link to="/login"> Login</Link>}
                 </button>
             </div>

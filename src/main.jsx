@@ -14,7 +14,8 @@ import Whyus from './Components/Whyus/Whyus.jsx';
 import AuthProvider from './Contexts/AuthProvider.jsx';
 import Category from './Components/Category/Category.jsx';
 import Packages from './Components/Packages/Packages.jsx';
-import whyus from './Components/Whyus/Whyus.jsx';
+import SubsBox from './Pages/SubsBox.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -43,9 +44,15 @@ const router = createBrowserRouter([
         Component: Packages
       },
       {
-        path: "whyus",
+        path: "why-us",
         Component: Whyus
+      },
+      {
+        path: "subscription-packages",
+        element: <SubsBox />,
+      
       }
+      
 
     ]
   },

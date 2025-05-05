@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "name": "Pawfect Wellness Pack",
+      "thumbnail": "https://i.ibb.co.com/RpqgDmBv/dog-food-icon-set-1284-20800.jpg",
+      "banner": "https://i.ibb.co.com/2HnGwDG/erda-estremera-sx-Nt9g77-PE0-unsplash-1024x680.jpg",
+      "frequency": "Monthly",
+      "price": 30,
+      "description": "A monthly subscription box designed to keep your pet happy and healthy with grooming essentials, organic treats, and a surprise toy.",
+      "category": "Food",
+      "features": [
+        "Natural grooming products",
+        "Handpicked healthy treats",
+        "Interactive toy for stimulation",
+        "QR-enabled health tracking tag"
+      ],
+      "subscription_benefits": [
+        "Free shipping",
+        "Early access to new products",
+        "Exclusive members-only toys",
+        "Free vet teleconsultation (once/month)"
+      ],
+      "ratings": 4.8,
+      "number_of_reviews": 215
+    },
+    {
+      "id": 2,
+      "name": "Smart Feeder Kit",
+      "thumbnail": "https://i.ibb.co.com/LzVmC84H/pet-feeders-different-shapes-colors-1048944-18188698.jpg",
+      "banner": "https://i.ibb.co.com/mg8RD13/03-DESKTOP-min.png",
+      "frequency": "Quarterly",
+      "price": 99.99,
+      "description": "Automate your pet's feeding schedule with our Smart Feeder Kit that comes with app control, portion tracking, and real-time updates.",
+      "category": "Smart Pet Gadgets",
+      "features": [
+        "Wi-Fi connected feeder",
+        "Mobile app control",
+        "Built-in camera for monitoring",
+        "Low-food alerts and voice assistant integration"
+      ],
+      "subscription_benefits": [
+        "Device upgrade every 12 months",
+        "Free app subscription",
+        "Access to feeding analytics",
+        "Priority support"
+      ],
+      "ratings": 4.6,
+      "number_of_reviews": 142
+    },
+    {
+      "id": 3,
+      "name": "Home Tracker & Safety Bundle",
+      "thumbnail": "https://i.ibb.co.com/QjFrbW1V/5112878.png",
+      "banner": "https://i.ibb.co.com/VWsCZskM/IMG-2851-2000x.webp",
+      "frequency": "Bi-Monthly",
+      "price": 199.99,
+      "description": "Enhance your pet's safety with a GPS-enabled collar and smart door sensors to monitor their movement and activity indoors and outdoors.",
+      "category": "Pet Safety Devices",
+      "features": [
+        "GPS collar with real-time tracking",
+        "Smart pet door sensor",
+        "Geo-fencing alerts",
+        "Rechargeable and waterproof"
+      ],
+      "subscription_benefits": [
+        "Lost-pet recovery assistance",
+        "Free collar replacement annually",
+        "Access to pet activity history",
+        "Monthly safety tips from vets"
+      ],
+      "ratings": 4.9,
+      "number_of_reviews": 98
+    }
+  ]
+  
