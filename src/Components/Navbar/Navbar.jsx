@@ -2,25 +2,30 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import './Navbar.css'
 import { AuthContext } from '../../Contexts/AuthContext';
+import navLogo from '../../assets/paw logo.png'
+
 
 const Navbar = () => {
 
-    const {user} = use(AuthContext);
-    console.log( user);
+    const { user } = use(AuthContext);
+    console.log(user);
     // const userInfo= use(AuthContext);
     // console.log('userInfo in the navbar', userInfo);
-    
+
 
 
     const links = <>
-    <li><NavLink to="/">Home</NavLink ></li>
-    <li><NavLink to="/login">Login</NavLink ></li>
-    <li><NavLink to="/register">Register</NavLink ></li>
-        
+        <li><NavLink to="/">Home</NavLink ></li>
+        <li><NavLink to="/category">Category</NavLink ></li>
+        <li><NavLink to="/whyus">Why Us!</NavLink ></li>
+        <li><NavLink to="/packages">Packages</NavLink ></li>
+        <li><NavLink to="/login">Login</NavLink ></li>
+        <li><NavLink to="/register">Register</NavLink ></li>
+
     </>
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-gradient-to-t from-amber via-blue-100 to-blue-500 shadow-sm">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,16 +37,22 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <img className='w-12 h-12' src={navLogo} alt="" />
+                <a className="btn btn-ghost text-xl">Paws & Play</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {links}
                 </ul>
             </div>
+            
+
             <div className="navbar-end">
-               {user? <a className="btn">Sign Out</a>: <Link to ="/login"> Login</Link>}
+                <button className="bg-[#595014] hover:bg-orange-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300">
+                    {user ? <a className="btn">Sign Out</a> : <Link to="/login"> Login</Link>}
+                </button>
             </div>
+
         </div>
     );
 };

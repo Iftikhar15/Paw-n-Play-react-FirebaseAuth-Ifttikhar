@@ -10,7 +10,11 @@ import Root from './Layouts/Root.jsx';
 import Home from './Components/Home/Home.jsx';
 import Login from './Components/Login/Login.jsx';
 import Register from './Components/Register/Register.jsx';
+import Whyus from './Components/Whyus/Whyus.jsx';
 import AuthProvider from './Contexts/AuthProvider.jsx';
+import Category from './Components/Category/Category.jsx';
+import Packages from './Components/Packages/Packages.jsx';
+import whyus from './Components/Whyus/Whyus.jsx';
 
 
 const router = createBrowserRouter([
@@ -30,6 +34,19 @@ const router = createBrowserRouter([
         path: "register",
         Component: Register
       },
+      {
+        path: "category",
+        Component: Category
+      },
+      {
+        path: "packages",
+        Component: Packages
+      },
+      {
+        path: "whyus",
+        Component: Whyus
+      }
+
     ]
   },
 ]);
