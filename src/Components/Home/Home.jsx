@@ -9,12 +9,14 @@ import '../../app.css';
 import { Navigate, NavLink } from 'react-router';
 import SubsBox from '../../Pages/SubsBox';
 import DataFetch from '../../Controller/DataFetch';
+import PricingFeature from '../../Pages/PricingFeature';
+import { CircleCheckBig } from 'lucide-react';
 
 
 const CounterCard = ({ start, end, duration, label }) => {
 
 
- 
+
 
 
 
@@ -48,6 +50,8 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await DataFetch();
+      // console.log("fetchingdata",data);
+
       setData(data)
       setisLoading(true)
 
@@ -55,7 +59,7 @@ const Home = () => {
     !isLoading && fetchData();
   }, [isLoading])
 
-  
+
 
 
 
@@ -67,12 +71,18 @@ const Home = () => {
     category,
     price,
     frequency,
+    description,
+    features,
+    popular,
   } = singleBox || {};
+
+  // console.log("features",data);
+
 
 
   return (
     <>
-      <div className="carousel w-full h-[800px]">
+      <div className="carousel w-full h-[800px] ">
         {/* Slide 1 */}
         <div id="slide1" className="relative carousel-item w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${s1})` }}
@@ -135,7 +145,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="p-6 py-12 dark:bg-violet-600 dark:text-gray-50 w-8/12 mx-auto rounded-4xl">
+      <div className="p-6 py-12 dark:bg-violet-400 dark:text-gray-50 w-8/12 mx-auto rounded-4xl absolute ml-60">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <h2 className="text-center text-6xl tracking-tighter font-bold">Up to
@@ -156,42 +166,65 @@ const Home = () => {
         </div>
       </div>
 
+      <div className='bg-violet-700 flex flex-1/2 p-20 my-20 h-[700px]'>
 
-        <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
-      
-        
-          <img className=" object-cover rounded-md mb-4" src={thumbnail} alt={name} />
-            
-            
-          
-          <h2 className="text-2xl font-bold mb-2">{name}</h2>
-          <p className="text-gray-600 mb-1">Category: {category}</p>
-          <p className="text-gray-600 mb-1">Price: ${price}</p>
-          <p className="text-gray-600 mb-4">Frequency: {frequency}</p>
-
-          <div className='flex justify-between'>
-          <button
-            onClick={() => Navigate(-1)}
-            className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+        <div className="card w-96 shadow-sm bg-cyan-600">
+          <div className="card-body">
+            {popular && <span className="badge badge-xs badge-warning">Most Popular</span>}
+            <div className="">
+              <h2 className="text-2xl font-bold">{name}</h2>
+              <span className="text-xl">${price}/ Month</span>
+            </div>
+            <ul className="mt-6 flex flex-col gap-2 text-xs flex-1 bg-cyan-200 rounded-2xl p-5">
+              {features?.map((feature, index) => <li key={index}>
+               <p className='flex'><CircleCheckBig className='mr-2'></CircleCheckBig> {feature}</p>
+              </li>)
+              }
+              
+            </ul>
+            <NavLink
+            to="/packages"
+            className="px-15 mt-4 lg:mt-0 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center  "
           >
-            Go Back
-          </button>
-          <NavLink 
-          to='/subscription-packages'>
-          <button
-            onClick={() => Navigate(-1)}
-            className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+            Select Plan
+          </NavLink>
+          </div>
+        </div>
+
+        <div className=' w-2/3 rounded-2xl p-10 flex-1'>
+          <h3 className='text-5xl text-white mb-10'>Pick your Pet's plan</h3>
+          <h1 className='text-3xl text-amber-100 mb-20'>Delight your beloved companion with a curated selection of toys, treats, and adventures delivered monthly. Soon, every delivery will feel like it's just for them.</h1>
+
+          <NavLink
+            to="/packages"
+            className="px-15 mt-4 lg:mt-0 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center absolute "
           >
             View More
-          </button>
           </NavLink>
-          
-          </div>
-          
-        
-       
-    </div>
-      
+        </div>
+      </div>
+
+      <section className="bg-amber-50 relative">
+  {/* Content goes here */}
+
+  {/* Wave SVG */}
+  <div className="absolute bottom-0 w-full overflow-hidden leading-[0]">
+    <svg
+      className="relative block w-[calc(100%+1.3px)] h-[80px]"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0,0 C300,100 900,0 1200,100 L1200,120 L0,120 Z"
+        fill="#3B82F6" // Tailwind blue-500
+      />
+    </svg>
+  </div>
+</section>
+
+
+
     </>
 
   );
