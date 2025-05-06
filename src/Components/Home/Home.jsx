@@ -11,6 +11,7 @@ import SubsBox from '../../Pages/SubsBox';
 import DataFetch from '../../Controller/DataFetch';
 import PricingFeature from '../../Pages/PricingFeature';
 import { CircleCheckBig } from 'lucide-react';
+import Faq from '../../Ui/Faq';
 
 
 const CounterCard = ({ start, end, duration, label }) => {
@@ -170,24 +171,29 @@ const Home = () => {
 
         <div className="card w-96 shadow-sm bg-cyan-600">
           <div className="card-body">
-            {popular && <span className="badge badge-xs badge-warning">Most Popular</span>}
-            <div className="">
+            <div className='flex flex-col '>
+              {popular && <span className="px-3 mb-4 badge badge-md badge-warning">Most Popular</span>}
+              <p className='text-right badge badge-xl  bg-cyan-200'>{category}</p>
+            </div>
+
+            <div>
               <h2 className="text-2xl font-bold">{name}</h2>
               <span className="text-xl">${price}/ Month</span>
+
             </div>
             <ul className="mt-6 flex flex-col gap-2 text-xs flex-1 bg-cyan-200 rounded-2xl p-5">
               {features?.map((feature, index) => <li key={index}>
-               <p className='flex'><CircleCheckBig className='mr-2'></CircleCheckBig> {feature}</p>
+                <p className='flex'><CircleCheckBig className='mr-2'></CircleCheckBig> {feature}</p>
               </li>)
               }
-              
+
             </ul>
             <NavLink
-            to="/packages"
-            className="px-15 mt-4 lg:mt-0 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center  "
-          >
-            Select Plan
-          </NavLink>
+              to="/packages"
+              className="px-15 mt-4 lg:mt-0 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center  "
+            >
+              Select Plan
+            </NavLink>
           </div>
         </div>
 
@@ -204,24 +210,81 @@ const Home = () => {
         </div>
       </div>
 
-      <section className="bg-amber-50 relative">
-  {/* Content goes here */}
 
-  {/* Wave SVG */}
-  <div className="absolute bottom-0 w-full overflow-hidden leading-[0]">
-    <svg
-      className="relative block w-[calc(100%+1.3px)] h-[80px]"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1200 120"
-      preserveAspectRatio="none"
-    >
-      <path
-        d="M0,0 C300,100 900,0 1200,100 L1200,120 L0,120 Z"
-        fill="#3B82F6" // Tailwind blue-500
-      />
-    </svg>
-  </div>
-</section>
+
+      <section className="relative bg-amber-50 h-[500px] overflow-hidden">
+        {/* Top Violet Wave */}
+        <div className="absolute top-0 w-full rotate-180 overflow-hidden leading-[0]">
+          <svg
+            className="relative block w-[calc(100%+1.3px)] h-[100px] fill-violet-700"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,0 C300,100 900,0 1200,100 L1200,120 L0,120 Z" />
+          </svg>
+        </div>
+
+        {/* Main Content */}
+        <div className="relative z-10 flex flex-col items-center justify-start h-full px-4 pt-20">
+          <h1 className="text-5xl font-bold text-violet-700 mb-4 text-center">
+            Our Pet Care Categories
+          </h1>
+          <p className="text-lg text-gray-600 text-center max-w-2xl mb-10">
+            Explore different types of care we offer to keep your pet happy and healthy!
+          </p>
+
+          {/* Categories Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl w-full">
+            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h2 className="text-xl font-semibold text-violet-700 mb-2">Health & Wellness</h2>
+              <p className="text-gray-600 text-sm">Vet visits, vaccinations, and checkups.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h2 className="text-xl font-semibold text-violet-700 mb-2">Grooming</h2>
+              <p className="text-gray-600 text-sm">Bathing, brushing, nail trimming & more.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h2 className="text-xl font-semibold text-violet-700 mb-2">Training</h2>
+              <p className="text-gray-600 text-sm">Basic obedience and behavior training programs.</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+              <h2 className="text-xl font-semibold text-violet-700 mb-2">Boarding & Sitting</h2>
+              <p className="text-gray-600 text-sm">Safe overnight care when you're away.</p>
+            </div>
+          </div>
+
+
+          {/* View More Button */}
+          <NavLink
+            to="/category"
+          >
+            <button className="mt-10 px-6 py-3 bg-violet-700 text-white rounded-full hover:bg-violet-800 transition">
+              View More Categories
+            </button>
+          </NavLink>
+
+        </div>
+
+        {/* Bottom Violet Wave */}
+        <div className="absolute bottom-0 w-full overflow-hidden leading-[0]">
+          <svg
+            className="relative block w-[calc(100%+1.3px)] h-[100px] fill-violet-700"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,0 C300,100 900,0 1200,100 L1200,120 L0,120 Z" />
+          </svg>
+        </div>
+      </section>
+
+<Faq></Faq>
+      
+
 
 
 

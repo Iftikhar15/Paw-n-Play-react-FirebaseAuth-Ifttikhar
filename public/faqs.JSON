@@ -7,7 +7,7 @@
       "frequency": "Monthly",
       "price": 30,
       "description": "A monthly subscription box designed to keep your pet happy and healthy with grooming essentials, organic treats, and a surprise toy.",
-      "category": "Food",
+      "category": "Basic Category",
       "popular": true,
       "features": [
         "Natural grooming products",

@@ -1,0 +1,28 @@
+[
+    {
+      "id": 1,
+      "question": "1. What vaccinations does my pet need?",
+      "answer": "Core vaccinations include rabies, distemper, parvovirus, and hepatitis. Your vet may recommend additional vaccines based on lifestyle and location."
+    },
+    {
+      "id": 2,
+      "question": "2. How often should I groom my pet?",
+      "answer": "It depends on the breed and coat type. Most pets benefit from grooming every 4–8 weeks to keep their coat and nails healthy."
+    },
+    {
+      "id": 3,
+      "question": "3. When should I start training my puppy?",
+      "answer": "You can begin basic training as early as 8 weeks old. Early socialization and positive reinforcement are key to good behavior."
+    },
+    {
+      "id": 4,
+      "question": "4. What should I bring when boarding my pet?",
+      "answer": "Bring your pet's food, any medications, favorite toys, and vaccination records. Familiar items help reduce anxiety during their stay."
+    },
+    {
+      "id": 5,
+      "question": "5. How do I know if my pet needs a vet visit?",
+      "answer": "If your pet shows signs like lack of appetite, lethargy, vomiting, unusual behavior, or limping, it's best to consult a vet promptly."
+    }
+  ]
+  
