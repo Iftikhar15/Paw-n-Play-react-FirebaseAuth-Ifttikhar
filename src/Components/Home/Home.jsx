@@ -83,7 +83,8 @@ const Home = () => {
 
   return (
     <>
-      <div className="carousel w-full h-[800px] ">
+    <div>
+    <div className="carousel w-full h-[800px] ">
         {/* Slide 1 */}
         <div id="slide1" className="relative carousel-item w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${s1})` }}
@@ -281,9 +282,10 @@ const Home = () => {
           </svg>
         </div>
       </section>
-
-<Faq></Faq>
+      <Faq></Faq>
+    </div>
       
+
 
 
 
