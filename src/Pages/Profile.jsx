@@ -11,28 +11,25 @@ const Profile = () => {
                 />
                 <div>
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">name</h2>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">location</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">location: Dhaka, Bangladesh</p>
                     <p className="text-sm text-gray-600 dark:text-gray-300">email</p>
                 </div>
             </div>
             <div className="mt-4">
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">About</h3>
-                <p className="text-gray-700 dark:text-gray-300 mt-2">bio</p>
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">About: </h3>
+                <p className="text-gray-700 dark:text-gray-300 mt-2">Lover of belly rubs, treats, and long naps in the sun—living my best pet life.</p>
             </div>
             <div className="mt-4 space-y-3">
-                <div>
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">About</h3>
-                    <p className="text-gray-700 dark:text-gray-300 mt-1">About:bio</p>
-                </div>
+                
 
                 <div>
-                    <h4 className="font-medium text-gray-800 dark:text-gray-200">Contact Info</h4>
-                    <p className="text-gray-700 dark:text-gray-300">Phone: phone</p>
+                    <h4 className="font-medium text-gray-800 dark:text-gray-200">Contact Info:</h4>
+                    <p className="text-gray-700 dark:text-gray-300">0123456789</p>
                 </div>
 
                 <div>
                     <h4 className="font-medium text-gray-800 dark:text-gray-200">Personal</h4>
-                    <p className="text-gray-700 dark:text-gray-300">Birthday: birthday</p>
+                    <p className="text-gray-700 dark:text-gray-300">Birthday: 16.12.1971</p>
 
                 </div>
             </div>

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 const Item = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
+        
         <div className='flex flex-col items-center justify-center'>
             <div className="border rounded lg:w-250  flex flex-col shadow-sm">
                 <button

@@ -1,10 +1,11 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const { signInUser } = use(AuthContext)
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -15,6 +16,7 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user);
+                navigate("/");
             })
             .catch(error => {
                 console.log(error);
@@ -24,7 +26,7 @@ const Login = () => {
     return (
 
 
-        <div className="card bg-base-100 w-full mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
+        <div className="card bg-base-100 w-full mx-auto mt-10 max-w-sm shrink-0 shadow-2xl border-2 border-violet-700 ">
             <div className="card-body">
                 <h1 className="text-3xl text-center font-bold">Login now!</h1>
                 <form onSubmit={handleLogin} className="fieldset">
@@ -33,7 +35,10 @@ const Login = () => {
                     <label className="label">Password</label>
                     <input type="password" name="password" className="input" placeholder="Password" />
                     <div><a className="link link-hover">Forgot password?</a></div>
-                    <button className="btn btn-neutral mt-4">Login</button>
+
+                    <button className="btn btn-neutral mt-4 hover:bg-violet-700 ">Login</button>
+
+
                     <p> New to this site? <Link to="/register" className="link link-hover font-bold text-blue-400">Register</Link></p>
                 </form>
             </div>

@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { auth } from '../firebase.init';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import { onAuthStateChanged } from "firebase/auth";
 import { signOut } from 'firebase/auth/cordova';
 
 
 const AuthProvider = ({ children }) => {
     const [user, setUser]= useState(null);
-    const CreateUser = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password);
-    }
+    const CreateUser = async (email, password, photoURL, displayName) => {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        await updateProfile(user, {
+            displayName: displayName,
+            photoURL: photoURL
+        });
+        return userCredential;
+    };
 
     const signInUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
