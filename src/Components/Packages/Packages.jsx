@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { CircleCheckBig } from 'lucide-react'; // or your icon library
 import DataFetch from '../../Controller/DataFetch'; // Adjust path as needed
 
+
 const Packages = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -22,11 +23,12 @@ const Packages = () => {
         fetchData();
     }, []);
 
+    
+
     if (isLoading) return <p>Loading...</p>;
 
     return (
         <section className='bg-violet-100 py-16 '>
-
             <div className="text-center my-10">
                 <h1 className="text-4xl font-bold mb-4 text-violet-700">Choose Your Subscription Plan</h1>
                 <p className="text-lg text-gray-600 max-w-xl mx-auto">
@@ -34,9 +36,7 @@ const Packages = () => {
                 </p>
             </div>
 
-
             <div className="flex flex-wrap gap-6 justify-center " >
-
                 {data.map((box) => {
                     const {
                         id,
@@ -51,10 +51,6 @@ const Packages = () => {
                     } = box;
 
                     return (
-
-
-
-
                         <div key={id} className="card w-96 shadow-sm bg-cyan-600">
                             <div className="card-body">
                                 <div className="flex flex-col">
@@ -81,19 +77,22 @@ const Packages = () => {
                                 </ul>
 
                                 <NavLink
-                                    to="/packages"
+                                    to={`/packages/${id}`}
                                     className="px-15 mt-4 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center"
                                 >
                                     Select Plan
                                 </NavLink>
+
                             </div>
                         </div>
-
                     );
                 })}
             </div>
-        </section>
 
+            
+
+            
+        </section>
     );
 };
 

@@ -3,6 +3,7 @@ import { AuthContext } from './AuthContext';
 import { auth } from '../firebase.init';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { onAuthStateChanged } from "firebase/auth";
+import { signOut } from 'firebase/auth/cordova';
 
 
 const AuthProvider = ({ children }) => {
@@ -15,6 +16,9 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    const signOutUser= ()=>{
+        return signOut(auth)
+    }
 
     // onAuthStateChanged (auth, (currentUser) => {
     //     if (currentUser) {
@@ -42,7 +46,8 @@ const AuthProvider = ({ children }) => {
     const userInfo = {
         user,
         CreateUser,
-        signInUser
+        signInUser,
+        signOutUser
     }
 
     return (

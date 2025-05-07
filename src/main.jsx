@@ -15,6 +15,10 @@ import AuthProvider from './Contexts/AuthProvider.jsx';
 import Category from './Components/Category/Category.jsx';
 import Packages from './Components/Packages/Packages.jsx';
 import SubsBox from './Pages/SubsBox.jsx';
+import Error from './Components/ErrorPage/Error.jsx';
+import SubsDrtails from './Components/SubsDetails/SubsDetails.jsx';
+import SubsDetails from './Components/SubsDetails/SubsDetails.jsx';
+import Profile from './Pages/Profile.jsx';
 
 
 
@@ -51,6 +55,20 @@ const router = createBrowserRouter([
         path: "subscription-packages",
         element: <SubsBox />,
       
+      },
+      {
+        path: "profile",
+        Component: Profile
+      },
+      {
+        path: '*',
+        element: <Error/>
+      },
+      {
+      
+        path: "packages/:id",
+        Component: SubsDetails,
+        loader: () => fetch('../public/faqs.JSON'),
       }
       
 

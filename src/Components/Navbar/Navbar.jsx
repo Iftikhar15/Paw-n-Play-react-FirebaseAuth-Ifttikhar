@@ -7,20 +7,35 @@ import navLogo from '../../assets/paw logo.png'
 
 const Navbar = () => {
 
-    const { user } = use(AuthContext);
+    const { user, signOutUser } = use(AuthContext);
     console.log(user);
     // const userInfo= use(AuthContext);
     // console.log('userInfo in the navbar', userInfo);
-
+const handleSignOut=()=>{
+    signOutUser()
+    .then(()=>{
+        console.log('signout successfully');
+    })
+    .catch(error=>{
+        console.log(error);
+        
+    })
+}
 
 
     const links = <>
         <li><NavLink to="/">Home</NavLink ></li>
         <li><NavLink to="/category">Category</NavLink ></li>
         <li><NavLink to="/why-us">Why Us!</NavLink ></li>
-        <li><NavLink to="/packages">Packages</NavLink ></li>
+        
         <li><NavLink to="/login">Login</NavLink ></li>
         <li><NavLink to="/register">Register</NavLink ></li>
+        {
+            user && <>
+            <li><NavLink to="/packages">Packages</NavLink ></li>
+            <li><NavLink to="/profile">Profile</NavLink ></li>
+            </>
+        }
 
     </>
 
@@ -49,7 +64,14 @@ const Navbar = () => {
 
             <div className="navbar-end">
                 <button className="bg-gray-700 hover:bg-violet-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300">
-                    {user ? <a className="btn">Sign Out</a> : <Link to="/login"> Login</Link>}
+                    {user ? 
+                    <>
+                    <span>
+                        {user.email}
+                    </span>
+                    <a onClick={handleSignOut} className="btn">Sign Out</a>
+                    </>
+                    : <Link to="/login"> Login</Link>}
                 </button>
             </div>
 
