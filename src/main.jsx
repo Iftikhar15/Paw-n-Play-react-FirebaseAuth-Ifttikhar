@@ -119,7 +119,7 @@ const router = createBrowserRouter([
             <SubsDetails />
           </Suspense>
         ),
-        loader: () => fetch('../public/faqs.JSON'),
+        loader: () => fetch('/faqs.JSON'),
       },
     ],
   },
