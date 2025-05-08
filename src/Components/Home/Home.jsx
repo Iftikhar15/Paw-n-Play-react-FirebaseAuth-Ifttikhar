@@ -12,15 +12,13 @@ import DataFetch from '../../Controller/DataFetch';
 import PricingFeature from '../../Pages/PricingFeature';
 import { CircleCheckBig } from 'lucide-react';
 import Faq from '../../Ui/Faq';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Autoplay } from 'swiper/modules';
+
 
 
 const CounterCard = ({ start, end, duration, label }) => {
-
-
-
-
-
-
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
 
   return (
@@ -51,8 +49,6 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await DataFetch();
-      // console.log("fetchingdata",data);
-
       setData(data)
       setisLoading(true)
 
@@ -71,8 +67,6 @@ const Home = () => {
     name,
     category,
     price,
-    frequency,
-    description,
     features,
     popular,
   } = singleBox || {};
@@ -86,70 +80,62 @@ const Home = () => {
       <div className='bg-violet-700'>
         <div className=' w-11/12 mx-auto'>
           <div className="carousel w-full h-[800px] rounded-2xl">
-            {/* Slide 1 */}
-            <div id="slide1" className="relative carousel-item w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${s1})` }}
+
+
+            <Swiper
+              spaceBetween={50}
+              slidesPerView={1}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay]}
             >
-              <div className=' bg-blue-100 absolute opacity-40 items-start ml-30' >
-                <div >
-                  <p className='text-4xl pacifico-regular p-10 outline-blue-950 '>Upgrade <br />to next level pet care</p>
-
+              <SwiperSlide>
+              <div className="relative w-full h-full">
+                  <img src={s1} alt="Slide 4" className="w-full h-full object-cover rounded-2xl" />
+                  <div className="absolute inset-0 bg-black/40 flex items-start justify-start">
+                    <div className="p-10 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 text-black bg-transparent opacity-30 ml-0">
+                      <CounterCard start={0} end={10} duration={4} label="Total Shop" />
+                      <CounterCard start={400} end={1000} duration={4} label="Total Clients" />
+                      <CounterCard start={100} end={150} duration={4} label="Staffs" />
+                      <CounterCard start={100} end={300} duration={4} label="Total Veterinarian" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <a href="#slide4" className="btn btn-circle">❮</a>
-                <a href="#slide2" className="btn btn-circle">❯</a>
-              </div>
-            </div>
 
-            {/* Slide 2 */}
-            <div id="slide2" className="relative carousel-item w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${s2})` }}>
-
-
-              <div className=' bg-blue-100 absolute opacity-70 items-start ml-30' >
-                <div >
-                  <p className='text-4xl pacifico-regular p-10 outline-blue-950 '>because <br />your pet deserves the best</p>
-
+                
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="relative w-full h-full">
+                  <img
+                    src={s2}
+                    alt="Slide 2"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
+                  <div className="absolute inset-0 flex items-start p-10 rounded-2xl">
+                    <p className="text-4xl pacifico-regular text-blue-950">
+                      because <br /> your pet deserves the best
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <a href="#slide1" className="btn btn-circle">❮</a>
-                <a href="#slide3" className="btn btn-circle">❯</a>
-              </div>
-            </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={s3} alt="Slide 3" className="w-full h-full object-cover rounded-2xl" />
+              </SwiperSlide>
+              <SwiperSlide>
+              <div className="relative w-full h-full">
+                  <img src={s4} alt="Slide 1" className="w-full h-[800px] object-cover rounded-2xl" />
 
-            {/* Slide 3 */}
-            <div id="slide3" className="carousel-item relative w-full h-full">
-              <img src={s3} alt="Slide 3" className="w-full h-full object-cover" />
-              <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <a href="#slide2" className="btn btn-circle">❮</a>
-                <a href="#slide4" className="btn btn-circle">❯</a>
-              </div>
-            </div>
-
-            {/* Slide 4 */}
-            <div
-              id="slide4"
-              className="carousel-item relative w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${s4})` }}
-            >
-              <div className="absolute inset-0 bg-black/40 flex items-start justify-start">
-                <div className="p-10 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 text-black bg-transparent opacity-30 ml-0">
-                  <CounterCard start={0} end={10} duration={4} label="Total Shop" />
-                  <CounterCard start={400} end={1000} duration={4} label="Total Clients" />
-                  <CounterCard start={100} end={150} duration={4} label="Staffs" />
-                  <CounterCard start={100} end={300} duration={4} label="Total Veterinarian" />
+                  <div className="absolute top-1/3 left-10 bg-opacity-30 bg-transparent p-10 rounded-lg">
+                    <p className="text-4xl pacifico-regular text-gray-900">
+                      Upgrade <br /> to next level pet care
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                <a href="#slide3" className="btn btn-circle">❮</a>
-                <a href="#slide1" className="btn btn-circle">❯</a>
-              </div>
-            </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
-
-
           <div className="p-6 py-12 mt-20 dark:bg-violet-400 dark:text-gray-50 w-8/12 mx-auto rounded-4xl">
             <div className="container mx-auto">
               <div className="flex flex-col lg:flex-row items-center justify-between">
@@ -175,33 +161,55 @@ const Home = () => {
 
           <div className='bg-violet-700 flex flex-1/2 p-20 my-10 h-[700px] '>
 
-            <div className="card w-96 shadow-sm bg-cyan-600 relative">
-              <div className="card-body">
-                <div className='flex flex-col '>
-                  {popular && <span className="px-3 mb-4 badge badge-md badge-warning">Most Popular</span>}
-                  <p className='text-right badge badge-xl  bg-cyan-200'>{category}</p>
+            <div className="card w-96 shadow-sm bg-cyan-600 relative h-full">
+              <div className="card-body flex flex-col">
+                <div className="flex flex-col">
+                  {popular && (
+                    <span className="px-3 mb-4 badge badge-md badge-warning">Most Popular</span>
+                  )}
+                  <p className="text-right badge badge-xl bg-cyan-200">{category}</p>
                 </div>
 
                 <div>
                   <h2 className="text-2xl font-bold">{name}</h2>
                   <span className="text-xl">${price}/ Month</span>
-
                 </div>
-                <ul className="mt-6 flex flex-col gap-2 text-xs flex-1 bg-cyan-200 rounded-2xl p-5">
-                  {features?.map((feature, index) => <li key={index}>
-                    <p className='flex'><CircleCheckBig className='mr-2'></CircleCheckBig> {feature}</p>
-                  </li>)
-                  }
 
-                </ul>
-                <NavLink
-                  to="/packages"
-                  className="px-15 mt-4 lg:mt-0 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center  "
-                >
-                  Select Plan
-                </NavLink>
+                <div className="relative mt-6 rounded-2xl overflow-hidden flex-grow">
+                  <div
+                    className="absolute inset-0 bg-black/50"
+                    style={{
+                      backgroundImage: `url(${thumbnail})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      opacity: 0.2,
+                      zIndex: 0,
+                    }}
+                  />
+
+                  <ul className="relative z-10 flex flex-col gap-2 text-sm text-black font-bold p-5">
+                    {features?.map((feature, index) => (
+                      <li key={index}>
+                        <p className="flex items-center">
+                          <CircleCheckBig className="mr-2 text-green-300" />
+                          {feature}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-4">
+                  <NavLink
+                    to="/packages"
+                    className="px-15 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center"
+                  >
+                    View more
+                  </NavLink>
+                </div>
               </div>
             </div>
+
 
             <div className=' w-2/3 rounded-2xl p-10 flex-1'>
               <h3 className='text-5xl text-white mb-10'>Pick your Pet's plan</h3>
@@ -211,7 +219,7 @@ const Home = () => {
                 to="/packages"
                 className="px-15 mt-4 lg:mt-0 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center absolute "
               >
-                View More
+                View other plans
               </NavLink>
             </div>
           </div>

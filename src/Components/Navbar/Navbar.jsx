@@ -1,9 +1,9 @@
 import React, { use } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import './Navbar.css'
 import { AuthContext } from '../../Contexts/AuthContext';
 import navLogo from '../../assets/paw logo.png'
-
+import { NavLink } from 'react-router-dom'; 
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -54,7 +54,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img className='w-12 h-12' src={navLogo} alt="" />
+                <NavLink 
+                to="/"
+                >
                 <a className="btn btn-ghost text-xl">Paws & Play</a>
+                </NavLink>
+                
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

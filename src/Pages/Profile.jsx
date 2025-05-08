@@ -1,12 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { updateProfile } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const Profile = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);    
     const [name, setName] = useState('');
     const [photoURL, setPhotoUrl] = useState('');
-    const [message, setMessage] = useState('');
+    
 
     useEffect(() => {
         if (user) {
@@ -22,11 +23,27 @@ const Profile = () => {
                 displayName: name,
                 photoURL: photoURL,
             });
-            setMessage('Profile updated successfully!');
+             toast.success("Profile Updated successfully", {
+                                      position: "top-right",
+                                      autoClose: 4000,
+                                      hideProgressBar: false,
+                                      closeOnClick: true,
+                                      pauseOnHover: true,
+                                      draggable: true,
+                                      theme: "light",
+                                    });
             window.location.reload();
         } catch (error) {
             console.error('Update failed:', error);
-            setMessage('Failed to update profile.');
+             toast.error("Profile Update failed", {
+                                      position: "top-right",
+                                      autoClose: 4000,
+                                      hideProgressBar: false,
+                                      closeOnClick: true,
+                                      pauseOnHover: true,
+                                      draggable: true,
+                                      theme: "light",
+                                    });
         }
     };
 
@@ -70,7 +87,7 @@ const Profile = () => {
                 <button type="submit" className="btn btn-neutral mt-4 hover:bg-violet-700 flex flex-1">Update</button>
             </form>
 
-            {message && <p className="mt-4 text-center text-green-600">{message}</p>}
+            
         </section>
     );
 };
