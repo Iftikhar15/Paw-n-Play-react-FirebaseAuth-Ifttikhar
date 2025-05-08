@@ -19,6 +19,7 @@ import Error from './Components/ErrorPage/Error.jsx';
 import SubsDrtails from './Components/SubsDetails/SubsDetails.jsx';
 import SubsDetails from './Components/SubsDetails/SubsDetails.jsx';
 import Profile from './Pages/Profile.jsx';
+import ForgotPassword from './Components/ForgetPassword/forgetpassword.jsx';
 
 
 
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         Component: Profile
+      },
+      {
+        path: "forget-password",
+        Component: ForgotPassword
       },
       {
         path: '*',

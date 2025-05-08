@@ -1,12 +1,12 @@
 import React, { use } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import './Navbar.css'
 import { AuthContext } from '../../Contexts/AuthContext';
 import navLogo from '../../assets/paw logo.png'
 
 
 const Navbar = () => {
-
+    const navigate = useNavigate();
     const { user, signOutUser } = use(AuthContext);
     console.log(user);
     // const userInfo= use(AuthContext);
@@ -15,6 +15,7 @@ const Navbar = () => {
         signOutUser()
             .then(() => {
                 console.log('signout successfully');
+                navigate("/login");
             })
             .catch(error => {
                 console.log(error);
@@ -63,18 +64,29 @@ const Navbar = () => {
 
 
             <div className="navbar-end mx-3">
-                {user && <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />}
+                {user && (
+                    <div className="relative group inline-block mr-4">
+                        <img
+                            className="w-10 h-10 rounded-full cursor-pointer border-2 border-white"
+                            src={user.photoURL || navLogo}
+                            alt={user?.displayName}
+                            onClick={() => navigate('/profile')}
+                        />
+                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-40 p-2 bg-white dark:bg-gray-800 text-sm text-center rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
+                            <p className="text-gray-900 dark:text-white font-medium">{user.displayName}</p>
+                        </div>
+                    </div>
+                )}  
+                {user ?
+                    <a onClick={handleSignOut} className="btn dark:bg-gray-900 hover:bg-violet-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300">Logout</a>
 
-                
-                    {user ?
-                        <a onClick={handleSignOut} className="btn dark:bg-gray-900 hover:bg-violet-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300">Sign Out</a>
-
-                        : <Link to="/login"><a onClick={handleSignOut} className="btn dark:bg-gray-900 hover:bg-violet-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300">Login</a> </Link>}
-                
+                    :
+                    <Link to="/login"><a onClick={handleSignOut} className="btn dark:bg-gray-900 hover:bg-violet-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300">Login</a>
+                    </Link>
+                }
                 {!user && (
                     <Link to="/register">
                         <a
-                            onClick={handleSignOut}
                             className="btn dark:bg-gray-900 hover:bg-violet-700 cursor-pointer text-white text-sm sm:text-base px-3 py-2 sm:px-6 sm:py-2 rounded-2xl transition duration-300"
                         >
                             Sign Up

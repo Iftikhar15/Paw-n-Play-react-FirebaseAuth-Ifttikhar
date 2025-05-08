@@ -1,0 +1,41 @@
+// src/pages/ForgotPassword.jsx
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+const ForgotPassword = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [email, setEmail] = useState('');
+
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const emailFromLogin = queryParams.get('email');
+        if (emailFromLogin) setEmail(emailFromLogin);
+    }, [location]);
+
+    const handleReset = (e) => {
+        e.preventDefault();
+        window.location.href = 'https://mail.google.com/';
+    };
+
+    return (
+        <div className="card bg-base-100 w-full mx-auto mt-10 max-w-sm shadow-2xl border-2 border-violet-700">
+            <div className="card-body">
+                <h2 className="text-2xl font-bold text-center">Reset Password</h2>
+                <form onSubmit={handleReset}>
+                    <label className="label">Email</label>
+                    <input
+                        type="email"
+                        className="input w-full"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <button type="submit" className="btn btn-primary w-full mt-4">Reset Password</button>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export default ForgotPassword;
