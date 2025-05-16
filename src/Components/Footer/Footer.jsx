@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="footer sm:footer-horizontal bg-neutral p-10 bg-gradient-to-b from-white via-violet-50 to-violet-500 text-black flex justify-around">
+    <footer className="footer sm:footer-horizontal flex-col md:flex-col lg:flex-row xl:flex-row bg-neutral p-10 bg-gradient-to-b from-white via-violet-50 to-violet-500 text-black flex justify-around">
+      
       <aside>
         <NavLink to="/">
           <img className="w-10" src={logo} alt="Logo" />

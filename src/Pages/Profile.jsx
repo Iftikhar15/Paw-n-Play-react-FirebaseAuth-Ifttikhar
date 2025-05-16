@@ -50,7 +50,7 @@ const Profile = () => {
     if (!user) return <p className="text-center mt-10">Loading user...</p>;
 
     return (
-        <section className="max-w-2xl mx-auto p-4 rounded-2xl shadow-md bg-white dark:bg-violet-400 h-auto md:h-[600px] lg:h-[700px]">
+        <section className="max-w-2xl mx-auto my-10 p-4 rounded-2xl shadow-md bg-white dark:bg-violet-400 h-auto md:h-[600px] lg:h-[700px]">
             <div className="flex items-center space-x-6">
                 <img
                     src={user?.photoURL || "../assets/paw logo.png"}

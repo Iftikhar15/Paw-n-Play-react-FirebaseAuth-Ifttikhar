@@ -1,17 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { CircleCheckBig } from 'lucide-react'; // or your icon library
 import DataFetch from '../../Controller/DataFetch'; // Adjust path as needed
+import { AuthContext } from '../../Contexts/AuthContext';
 
 
 const Packages = () => {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const Navigate = useNavigate();
+     const { user, signOutUser } = useContext(AuthContext);
 
     useEffect(() => {
+        
+        {
+            user===null && (Navigate('/login'))
+        }
         const fetchData = async () => {
             try {
-                const result = await DataFetch(); // Fetch your JSON data
+                const result = await DataFetch(); 
                 setData(result);
                 setIsLoading(false);
             } catch (error) {
@@ -40,12 +47,10 @@ const Packages = () => {
                 {data.map((box) => {
                     const {
                         id,
-                        thumbnail,
                         name,
                         category,
                         price,
                         frequency,
-                        description,
                         features,
                         popular,
                     } = box;
@@ -78,7 +83,7 @@ const Packages = () => {
 
                                 <NavLink
                                     to={`/packages/${id}`}
-                                    className="px-15 mt-4 py-3 rounded-full border block dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600 text-center"
+                                    className="px-15 mt-4 py-3 rounded-full border block bg-gray-900 hover:bg-violet-700 dark:text-gray-50 dark:border-gray-600 text-center"
                                 >
                                     Select Plan
                                 </NavLink>

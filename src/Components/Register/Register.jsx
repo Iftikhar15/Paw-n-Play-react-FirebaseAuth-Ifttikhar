@@ -116,7 +116,7 @@ const Register = () => {
 
     return !isLoading ? (
         <div className="min-h-screen flex items-center justify-center bg-base-100 px-4">
-            <div className="card w-full max-w-sm shadow-2xl border-2 border-violet-700">
+            <div className="card w-full max-w-sm my-10 shadow-2xl border-2 border-violet-700">
                 <div className="card-body">
                     <h1 className="text-3xl text-center font-bold">Register now!</h1>
                     <form onSubmit={handleRegister} className="fieldset space-y-3">
