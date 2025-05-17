@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { CircleCheckBig } from 'lucide-react'; // or your icon library
-import DataFetch from '../../Controller/DataFetch'; // Adjust path as needed
+import { CircleCheckBig } from 'lucide-react'; 
+import DataFetch from '../../Controller/DataFetch'; 
 import { AuthContext } from '../../Contexts/AuthContext';
 
 
@@ -83,7 +83,7 @@ const Packages = () => {
 
                                 <NavLink
                                     to={`/packages/${id}`}
-                                    className="px-15 mt-4 py-3 rounded-full border block bg-gray-900 hover:bg-violet-700 dark:text-gray-50 dark:border-gray-600 text-center"
+                                    className="px-15 mt-4 py-3 rounded-full border block bg-gray-900 hover:bg-violet-700 text-gray-50 border-gray-600 text-center"
                                 >
                                     Select Plan
                                 </NavLink>
